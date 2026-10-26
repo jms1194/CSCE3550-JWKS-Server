@@ -6,8 +6,11 @@ import (
 )
 
 func main() {
-	store, err := NewKeyStore()
-	if err != nil { log.Fatal(err) }
+	store, err := NewKeyStore(databaseFile)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer store.Close()
 	srv := NewServer(store)
 	log.Println("JWKS server listening on http://localhost:8080")
 	log.Fatal(http.ListenAndServe(":8080", srv.Routes()))
