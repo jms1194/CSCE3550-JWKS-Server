@@ -1,0 +1,7 @@
+# Private signing keys and local SQLite data
+totally_not_my_privateKeys.db
+totally_not_my_privateKeys.db-*
+*.db-shm
+*.db-wal
+coverage.out
+*.exe
